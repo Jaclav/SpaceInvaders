@@ -85,9 +85,9 @@ begin:
             //check is enemy shot
             for(auto bullet = bullets.begin(); bullet < bullets.end(); *bullet++) {
                 if(enemy->getGlobalBounds().contains(bullet->getPosition())) {
-                    bullets.erase(bullet);
                     if(bullet->getVelocity() < 0)
                         enemies.erase(enemy);
+                    bullets.erase(bullet);
                 }
             }
             //shoot
