@@ -1,3 +1,3 @@
 run:
-	g++ Enemy.cpp Bullet.cpp main.cpp -lsfml-graphics -lsfml-system -lsfml-window  -o SpaceInvaders
+	g++ src/*.cpp -Iinclude/ -lsfml-graphics -lsfml-system -lsfml-window  -o SpaceInvaders
 	./SpaceInvaders

@@ -7,7 +7,7 @@
 inline void message(sf::RenderWindow &window, std::wstring message) {
     sf::Font font;
     sf::Event event;
-    font.loadFromFile("/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf");
+    font.loadFromFile("res/Ubuntu-L.ttf");
     sf::Text text(message, font);
     text.setPosition((window.getSize().x - text.getLocalBounds().width) / 2, (window.getSize().y - text.getLocalBounds().height) / 2);
 
@@ -35,7 +35,7 @@ begin:
 
     sf::Texture playerT;
     sf::Sprite player;
-    playerT.loadFromFile("space.png");
+    playerT.loadFromFile("res/spaceship.png");
     player.setTexture(playerT);
     player.setPosition(window.getSize().x / 2, window.getSize().y - player.getLocalBounds().height - 20);
     std::vector<Bullet> bullets;

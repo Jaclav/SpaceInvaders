@@ -5,7 +5,7 @@ Enemy::Side Enemy::side = Enemy::Side::Right;
 
 Enemy::Enemy(sf::Vector2f position) {
     if(sprite.getTexture() == nullptr) {
-        texture.loadFromFile("alien.png");
+        texture.loadFromFile("res/alien.png");
         sprite.setTexture(texture);
     }
     sf::Color colors[] = {sf::Color::Magenta, sf::Color::Cyan, sf::Color::Green};
