@@ -1,8 +1,10 @@
-#include <SFML/Graphics.hpp>
-#include "Enemy.hpp"
-#include "Bullet.hpp"
 #include <vector>
 #include <iostream>
+
+#include <SFML/Graphics.hpp>
+
+#include "Enemy.hpp"
+#include "Bullet.hpp"
 
 inline void message(sf::RenderWindow &window, std::wstring message) {
     sf::Font font;
@@ -46,6 +48,7 @@ begin:
             enemies.push_back(Enemy(sf::Vector2f(i * 70, j * 70)));
         }
     }
+
     bool released = true;
     sf::Clock cooldown;
 
@@ -96,8 +99,10 @@ begin:
                                                       enemy->getPosition().y + enemy->getGlobalBounds().height + 10), 5));
             }
         }
+
         window.draw(player);
-        //bullets
+
+		//bullets
         for(auto i = bullets.begin(); i < bullets.end(); *i++) {
             window.draw(*i);
             if(i->getPosition().y < 0 || i->getPosition().y + 30 > window.getSize().y) {
@@ -110,6 +115,7 @@ begin:
                     goto begin;
             }
         }
+
         window.display();
     }
 }
