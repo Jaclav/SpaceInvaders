@@ -3,7 +3,7 @@
 Bullet::Bullet(sf::Vector2f position, int velocity) {
     laser.setSize(sf::Vector2f(5, 30));
     laser.setPosition(position);
-    laser.setFillColor(sf::Color::Red);
+    laser.setFillColor((velocity < 0 ? sf::Color::Green : sf::Color::Red));
     this->velocity = velocity;
 }
 
