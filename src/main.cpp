@@ -1,10 +1,10 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 
-#include "Enemy.hpp"
 #include "Bullet.hpp"
+#include "Enemy.hpp"
 
 inline void message(sf::RenderWindow &window, std::wstring message) {
     sf::Font font;
@@ -73,10 +73,11 @@ begin:
             }
         }
 
-        ///draw
+        /////draw
         window.clear();
 
-        if(enemies.size() == 0) {
+		//if any enemy didn't left
+        if(!enemies.size()) {
             message(window, L"Wygrałeś!\nWciśnij ENTER by kontynuować");
             if(window.isOpen())
                 goto begin;
@@ -94,7 +95,7 @@ begin:
                 }
             }
             //shoot
-            if(rand() % 100 == 0) {
+            if(rand() % 80 == 0) {
                 bullets.push_back(Bullet(sf::Vector2f(enemy->getPosition().x + enemy->getGlobalBounds().width / 2,
                                                       enemy->getPosition().y + enemy->getGlobalBounds().height + 10), 5));
             }
@@ -102,9 +103,10 @@ begin:
 
         window.draw(player);
 
-		//bullets
+        //bullets
         for(auto i = bullets.begin(); i < bullets.end(); *i++) {
             window.draw(*i);
+			//if exceeded screen
             if(i->getPosition().y < 0 || i->getPosition().y + 30 > window.getSize().y) {
                 bullets.erase(i);
             }
